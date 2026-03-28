@@ -8,6 +8,7 @@
   imports = [
 	./modules/starship.nix
 	./modules/zsh.nix
+	./modules/git.nix
   ];
 
   home.packages = with pkgs; [

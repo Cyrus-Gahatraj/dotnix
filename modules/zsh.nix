@@ -2,6 +2,9 @@
 {
 	programs.zsh = {
 		enable = true;
+		enableCompletion = true;
+		syntaxHighlighting.enable = true;
+		autosuggestion.enable = true;
 
 		history = {
 			size          = 5000;
@@ -24,18 +27,6 @@
 		};
 
 		initContent = ''
-		  # Antidote
-		  ANTIDOTE_HOME="${"\${XDG_DATA_HOME:-\${HOME}/.local/share}"}/.antidote"
-		  if [ ! -d "$ANTIDOTE_HOME" ]; then
-			  mkdir -p "$(dirname $ANTIDOTE_HOME)"
-			  git clone --depth=1 https://github.com/mattmc3/antidote.git "$ANTIDOTE_HOME"
-		  fi
-		  source "$ANTIDOTE_HOME/antidote.zsh"
-
-		  # Completion
-		  fpath+=~/.zfunc
-		  zstyle ':completion:*' menu select
-
 		  # Key binds
 		  bindkey '^Y' autosuggest-accept
 

@@ -18,6 +18,8 @@
 	btop
 	fastfetch
 	jq
+	opencode
+	sesh
   ];
 
   # Let Home Manager install and manage itself.

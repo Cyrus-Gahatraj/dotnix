@@ -21,6 +21,7 @@
 			ll     = "ls -lh";
 			zed    = "zeditor";
 			cd     = "zd";
+			ts	   = "sesh connect $(sesh list --icons | fzf --ansi)";
 			".."   = "cd ..";
 			"..."  = "cd ../..";
 			"...." = "cd ../../../";
@@ -51,7 +52,6 @@
 		'';
 	 
 	};
-
 
 	programs.fzf = {
 		enable = true;

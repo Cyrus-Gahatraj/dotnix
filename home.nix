@@ -9,6 +9,7 @@
 	./modules/starship.nix
 	./modules/zsh.nix
 	./modules/git.nix
+	./modules/opencode.nix
   ];
 
   home.packages = with pkgs; [
@@ -18,7 +19,7 @@
 	btop
 	fastfetch
 	jq
-	opencode
+	libnotify
 	sesh
   ];
 

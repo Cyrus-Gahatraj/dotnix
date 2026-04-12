@@ -1,5 +1,39 @@
 { config, pkgs, ... }:
 {
+	home.sessionVariables = {
+		# Docker
+		DOCKER_CONFIG = "$HOME/.config/docker";
+
+		# Python
+		JUPYTER_CONFIG_DIR = "$HOME/.config/jupyter";
+
+		# JS npm
+		NPM_CONFIG_USERCONFIG = "$HOME/.config/npm/npmrc";
+		NODE_REPL_HISTORY = "$HOME/.local/share/node_repl_history";
+
+		# Rust and Cargo
+		CARGO_HOME = "$HOME/.local/share/cargo";
+		RUSTUP_HOME = "$HOME/.local/share/rustup";
+
+		# Go
+		GOPATH = "$HOME/.local/share/go";
+
+		# Android
+		ANDROID_USER_HOME = "$HOME/.local/share/android";
+		ANDROID_HOME = "$HOME/.local/share/android";
+		PUB_CACHE = "$HOME/.local/share/pub-cache";
+		
+        # Java
+		GRADLE_USER_HOME = "$HOME/.local/share/gradle";
+	};
+
+	home.sessionPath = [
+		"$HOME/.local/bin"
+		"$HOME/.local/share/cargo/bin"
+		"$HOME/.local/share/go/bin"
+		"$HOME/Code/Scripts/_bin"
+	];
+
 	programs.zsh = {
 		enable = true;
 		enableCompletion = true;
@@ -41,9 +75,6 @@
 				  z "$@" && printf "\U000F17A9 " && pwd || echo "Error: Directory not found"
 			  fi
 		  }
-
-		  # PATH
-		  export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/Code/Scripts/_bin:$PATH"
 
 		  # Tmux auto-attach
 		  if [[ -z "$TMUX" && -n "$PS1" && -z "$NVIM" ]]; then
